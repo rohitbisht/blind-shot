@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="distribution" size="1013,408" id="org.company.fingerprint.distribution" metadata="uml2-1.0" initialized="true" scrolledY="71" tag="10" key="32303037303533312D3130204964656E74697479">
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.1/@sourceConnections.1" name="IDistributionController" location="67,50" size="160,77" id="org.company.fingerprint.distribution/IDistributionController" runTimeClassModel="Execute(Ljava.lang.Object;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="57,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Execute" id="org.company.fingerprint.distribution/IDistributionController#Execute(Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="HBaseDistributionController" location="50,177" size="194,211" id="org.company.fingerprint.distribution/HBaseDistributionController" runTimeClassModel="InitializeDistributedChannel(),RefrestServersList(),regionServers,Execute(Ljava.lang.Object;),HBaseDistributionController(Ljava.lang.String;),dataTableName,configuration,channel,Initialize()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="171,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="channel" id="org.company.fingerprint.distribution/HBaseDistributionController#channel"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="configuration" id="org.company.fingerprint.distribution/HBaseDistributionController#configuration"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataTableName" id="org.company.fingerprint.distribution/HBaseDistributionController#dataTableName"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="regionServers" id="org.company.fingerprint.distribution/HBaseDistributionController#regionServers"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,90">
+      <children xsi:type="editmodel:MethodEditModel" name="Execute" id="org.company.fingerprint.distribution/HBaseDistributionController#Execute(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="HBaseDistributionController" id="org.company.fingerprint.distribution/HBaseDistributionController#HBaseDistributionController(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Initialize" id="org.company.fingerprint.distribution/HBaseDistributionController#Initialize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="InitializeDistributedChannel" id="org.company.fingerprint.distribution/HBaseDistributionController#InitializeDistributedChannel()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="RefrestServersList" id="org.company.fingerprint.distribution/HBaseDistributionController#RefrestServersList()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint.distribution/HBaseDistributionController-Soyatec::Implement->org.company.fingerprint.distribution/IDistributionController" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="50,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="97,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="80,77"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.company.fingerprint.distribution/IDistributionController&lt;-org.company.fingerprint.distribution/HBaseDistributionController" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.1/@children.1" sourceEnd="//@children.1/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="77,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="60,77"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="org.company.fingerprint.distribution/SynchnronizerBlock@synchnronizerBlocks+org.company.fingerprint.distribution/HBaseDistributionController@hBaseDistributionController" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.2/@children.1" label="//@children.1/@sourceConnections.2/@children.2" sourceEnd="//@children.1/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hBaseDistributionController" location="194,14" id="org.company.fingerprint.distribution/SynchnronizerBlock@synchnronizerBlocks+org.company.fingerprint.distribution/HBaseDistributionController@hBaseDistributionController|org.company.fingerprint.distribution/HBaseDistributionController#hBaseDistributionController" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="synchnronizerBlocks" location="0,141" id="org.company.fingerprint.distribution/SynchnronizerBlock@synchnronizerBlocks+org.company.fingerprint.distribution/HBaseDistributionController@hBaseDistributionController|org.company.fingerprint.distribution/SynchnronizerBlock#synchnronizerBlocks" multiplicityLabel="//@children.1/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.1/@sourceConnections.2/@children.1/@children.0" aggregationKind="Aggregration" navigable="true" orderingKind="1">
+        <children xsi:type="editmodel:LabelEditModel" name=" - synchnronizerBlocks" location="218,174" size="90,10" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="304,198" size="4,10" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,10" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint.distribution/HBaseDistributionController-Soyatec::Import->org.company.fingerprint.distribution/SynchnronizerBlock" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.3/@children.2" label="//@children.1/@sourceConnections.3/@children.0" sourceEnd="//@children.1/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="0,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="194,34" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="15,157"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.2 //@children.1/@sourceConnections.3" name="SynchnronizerBlock" location="315,50" size="251,157" id="org.company.fingerprint.distribution/SynchnronizerBlock" runTimeClassModel="AddResult(Lorg.company.fingerprint.distribution.DistributionMessageReply;),serverList,CallbackIfAllRepliesReceived(),callback,SynchnronizerBlock(JLorg.company.fingerprint.distribution.ISynchronizedOperationCompletionCallback;),operationId">
+    <children xsi:type="editmodel:CompartmentEditModel" size="228,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="callback" id="org.company.fingerprint.distribution/SynchnronizerBlock#callback"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="operationId" id="org.company.fingerprint.distribution/SynchnronizerBlock#operationId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="serverList" id="org.company.fingerprint.distribution/SynchnronizerBlock#serverList"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="137,54">
+      <children xsi:type="editmodel:MethodEditModel" name="AddResult" id="org.company.fingerprint.distribution/SynchnronizerBlock#AddResult(Lorg.company.fingerprint.distribution.DistributionMessageReply;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="CallbackIfAllRepliesReceived" id="org.company.fingerprint.distribution/SynchnronizerBlock#CallbackIfAllRepliesReceived()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SynchnronizerBlock" id="org.company.fingerprint.distribution/SynchnronizerBlock#SynchnronizerBlock(JLorg.company.fingerprint.distribution.ISynchronizedOperationCompletionCallback;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint.distribution/SynchnronizerBlock-Soyatec::Import->org.company.fingerprint.distribution/ISynchronizedOperationCompletionCallback" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="251,37" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,19"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint.distribution/SynchnronizerBlock-Soyatec::Import->org.company.fingerprint.distribution/DistributionMessageReply*org.company.fingerprint.distribution/SynchnronizerBlock-Standard::Call->org.company.fingerprint.distribution/DistributionMessageReply*org.company.fingerprint.distribution/SynchnronizerBlock-Soyatec::Access->org.company.fingerprint.distribution/DistributionMessageReply" source="//@children.2" target="//@children.4" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Access, Call, Import»" size="86,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="251,115" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,41"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.2/@sourceConnections.0" name="ISynchronizedOperationCompletionCallback" location="621,68" size="269,39" id="org.company.fingerprint.distribution/ISynchronizedOperationCompletionCallback" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1" name="DistributionMessageReply" location="588,124" size="178,139" id="org.company.fingerprint.distribution/DistributionMessageReply" runTimeClassModel="result,GetServer(),server,GetOperationId(),operationId">
+    <children xsi:type="editmodel:CompartmentEditModel" size="88,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="operationId" id="org.company.fingerprint.distribution/DistributionMessageReply#operationId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="result" id="org.company.fingerprint.distribution/DistributionMessageReply#result"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="server" id="org.company.fingerprint.distribution/DistributionMessageReply#server"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="86,36">
+      <children xsi:type="editmodel:MethodEditModel" name="GetOperationId" id="org.company.fingerprint.distribution/DistributionMessageReply#GetOperationId()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="GetServer" id="org.company.fingerprint.distribution/DistributionMessageReply#GetServer()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=7;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

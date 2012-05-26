@@ -16,6 +16,8 @@ import org.apache.hadoop.hbase.HRegionInfo;
 import org.apache.hadoop.hbase.ServerName;
 import org.apache.hadoop.hbase.client.HTable;
 import org.company.fingerprint.transport.IDuplexDistributionChannel;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * @author rohit
@@ -82,4 +84,10 @@ public class HBaseDistributionController implements IDistributionController
         channel.SendToMultipleServers(servers, args);
         return null;
     }
+
+	/**
+	 * @uml.property  name="synchnronizerBlocks"
+	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="hBaseDistributionController:org.company.fingerprint.distribution.SynchnronizerBlock"
+	 */
+	private ArrayList<SynchnronizerBlock> synchnronizerBlocks;
 }
