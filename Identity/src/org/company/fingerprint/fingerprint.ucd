@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="fingerprint" size="1311,1198" id="org.company.fingerprint" metadata="uml2-1.0" initialized="true" scrolledY="400" tag="10" key="32303037303533312D3130204964656E74697479">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.5/@sourceConnections.1 //@children.1/@sourceConnections.1 //@children.6/@sourceConnections.1 //@children.3/@sourceConnections.0" name="FingerprintData" location="50,498" size="124,157" id="org.company.fingerprint/FingerprintData" runTimeClassModel="FingerprintData(Ljava.lang.String;[B),id,getMinutia(),FingerprintData([B[B),tempM,FingerprintData(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="95,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="id" id="org.company.fingerprint/FingerprintData#id"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tempM" id="org.company.fingerprint/FingerprintData#tempM"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="88,72">
+      <children xsi:type="editmodel:MethodEditModel" name="FingerprintData" id="org.company.fingerprint/FingerprintData#FingerprintData(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="FingerprintData" id="org.company.fingerprint/FingerprintData#FingerprintData(Ljava.lang.String;[B)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="FingerprintData" id="org.company.fingerprint/FingerprintData#FingerprintData([B[B)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getMinutia" id="org.company.fingerprint/FingerprintData#getMinutia()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.3 //@children.7/@sourceConnections.1 //@children.6/@sourceConnections.6" name="Reply" location="383,1021" size="180,157" id="org.company.fingerprint/Reply" runTimeClassModel="requestId,Reply(Lorg.company.fingerprint.Request;),instanceId,fingerprints,replyId,nextReplyId">
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="fingerprints" id="org.company.fingerprint/Reply#fingerprints"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="instanceId" id="org.company.fingerprint/Reply#instanceId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="nextReplyId" id="org.company.fingerprint/Reply#nextReplyId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="replyId" id="org.company.fingerprint/Reply#replyId"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="requestId" id="org.company.fingerprint/Reply#requestId"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="48,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Reply" id="org.company.fingerprint/Reply#Reply(Lorg.company.fingerprint.Request;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/Reply-Soyatec::Access->org.company.fingerprint/Request*org.company.fingerprint/Reply-Soyatec::Import->org.company.fingerprint/Request" source="//@children.1" target="//@children.5" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="66,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,11" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="101,80"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/Reply-Soyatec::Import->org.company.fingerprint/FingerprintData" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="36,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="117,157"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.2" name="RedisPubSubHandler" location="739,852" size="150,211" id="org.company.fingerprint/RedisPubSubHandler" runTimeClassModel="onUnsubscribe([BI),replyChannel,onMessage([B[B),onSubscribe([BI),RedisPubSubHandler(Lorg.company.fingerprint.IRequestProcessor;Lredis.clients.jedis.JedisPool;),SendReply(Lorg.company.fingerprint.Reply;),onPMessage([B[B[B),onPSubscribe([BI),onPUnsubscribe([BI)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="119,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,144">
+      <children xsi:type="editmodel:MethodEditModel" name="RedisPubSubHandler" id="org.company.fingerprint/RedisPubSubHandler#RedisPubSubHandler(Lorg.company.fingerprint.IRequestProcessor;Lredis.clients.jedis.JedisPool;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="SendReply" id="org.company.fingerprint/RedisPubSubHandler#SendReply(Lorg.company.fingerprint.Reply;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onMessage" id="org.company.fingerprint/RedisPubSubHandler#onMessage([B[B)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onPMessage" id="org.company.fingerprint/RedisPubSubHandler#onPMessage([B[B[B)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onPSubscribe" id="org.company.fingerprint/RedisPubSubHandler#onPSubscribe([BI)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onPUnsubscribe" id="org.company.fingerprint/RedisPubSubHandler#onPUnsubscribe([BI)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onSubscribe" id="org.company.fingerprint/RedisPubSubHandler#onSubscribe([BI)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onUnsubscribe" id="org.company.fingerprint/RedisPubSubHandler#onUnsubscribe([BI)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="org.company.fingerprint/RedisPubSubHandler@pubsubHandler+org.company.fingerprint/RedisBasedClientsHandler@" source="//@children.2" target="//@children.9" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="pubsubHandler" location="28,0" id="org.company.fingerprint/RedisPubSubHandler@pubsubHandler+org.company.fingerprint/RedisBasedClientsHandler@|org.company.fingerprint/RedisPubSubHandler#pubsubHandler" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ pubsubHandler" location="690,835" size="70,10" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="774,835" size="16,10" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="41,139" id="org.company.fingerprint/RedisPubSubHandler@pubsubHandler+org.company.fingerprint/RedisBasedClientsHandler@|org.company.fingerprint/RedisBasedClientsHandler#" roleLabel="//@children.2/@sourceConnections.0/@children.2/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="945,546" size="0,10" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="org.company.fingerprint/IRequestProcessor@requestProcessor+org.company.fingerprint/RedisPubSubHandler@" source="//@children.2" target="//@children.7" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" id="org.company.fingerprint/IRequestProcessor@requestProcessor+org.company.fingerprint/RedisPubSubHandler@|org.company.fingerprint/RedisPubSubHandler#" attachSource="true" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.0">
+        <children xsi:type="editmodel:LabelEditModel" location="742,835" size="0,10" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="requestProcessor" location="138,67" id="org.company.fingerprint/IRequestProcessor@requestProcessor+org.company.fingerprint/RedisPubSubHandler@|org.company.fingerprint/IRequestProcessor#requestProcessor" multiplicityLabel="//@children.2/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.2/@sourceConnections.1/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ requestProcessor" location="703,548" size="77,10" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="703,572" size="6,10" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/RedisPubSubHandler-Standard::Call->org.company.fingerprint/IRequestProcessor*org.company.fingerprint/RedisPubSubHandler-Soyatec::Import->org.company.fingerprint/IRequestProcessor" source="//@children.2" target="//@children.7" targetEnd="//@children.2/@sourceConnections.2/@children.2" label="//@children.2/@sourceConnections.2/@children.0" sourceEnd="//@children.2/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="55,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,12" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="123,77"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/RedisPubSubHandler-Soyatec::Import->org.company.fingerprint/Reply" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.3/@children.2" label="//@children.2/@sourceConnections.3/@children.0" sourceEnd="//@children.2/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,189" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="180,20"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/RedisPubSubHandler-Soyatec::Import->org.company.fingerprint/Request" source="//@children.2" target="//@children.5" targetEnd="//@children.2/@sourceConnections.4/@children.2" label="//@children.2/@sourceConnections.4/@children.0" sourceEnd="//@children.2/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,48" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="101,42"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0 //@children.6/@sourceConnections.5" name="FingerprintProvider" location="215,50" size="171,175" id="org.company.fingerprint/FingerprintProvider" runTimeClassModel="fingerprintColmnnMinutia,minutiaColumnBytes,fingerprintTableName,Open(),fingerprintColumnFamily,columnFamilyBytes,GetFingerprints()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="148,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="columnFamilyBytes" id="org.company.fingerprint/FingerprintProvider#columnFamilyBytes"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fingerprintColmnnMinutia" id="org.company.fingerprint/FingerprintProvider#fingerprintColmnnMinutia"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fingerprintColumnFamily" id="org.company.fingerprint/FingerprintProvider#fingerprintColumnFamily"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fingerprintTableName" id="org.company.fingerprint/FingerprintProvider#fingerprintTableName"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="minutiaColumnBytes" id="org.company.fingerprint/FingerprintProvider#minutiaColumnBytes"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="87,36">
+      <children xsi:type="editmodel:MethodEditModel" name="GetFingerprints" id="org.company.fingerprint/FingerprintProvider#GetFingerprints()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Open" id="org.company.fingerprint/FingerprintProvider#Open()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintProvider-Standard::Instantiate->org.company.fingerprint/FingerprintData*org.company.fingerprint/FingerprintProvider-Soyatec::Import->org.company.fingerprint/FingerprintData" source="//@children.3" target="//@children.0" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate»" size="81,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="47,175" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="95,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.3" name="ClientsHandlerFactory" location="1134,551" size="157,67" id="org.company.fingerprint/ClientsHandlerFactory" runTimeClassModel="GetClientsHandler(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="97,18">
+      <children xsi:type="editmodel:MethodEditModel" name="GetClientsHandler" id="org.company.fingerprint/ClientsHandlerFactory#GetClientsHandler(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/ClientsHandlerFactory-Soyatec::Import->org.company.fingerprint/IClientsHandler" source="//@children.4" target="//@children.8" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="52,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="91,77"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.4 //@children.7/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.6/@sourceConnections.7" name="Request" location="155,858" size="101,85" id="org.company.fingerprint/Request" runTimeClassModel="Request(),requestId">
+    <children xsi:type="editmodel:CompartmentEditModel" size="78,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="requestId" id="org.company.fingerprint/Request#requestId"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="58,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Request" id="org.company.fingerprint/Request#Request()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintData@fingerprintData+org.company.fingerprint/Request@" source="//@children.5" target="//@children.0" targetEnd="//@children.5/@sourceConnections.0/@children.2" label="//@children.5/@sourceConnections.0/@children.0" sourceEnd="//@children.5/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="9,0" id="org.company.fingerprint/FingerprintData@fingerprintData+org.company.fingerprint/Request@|org.company.fingerprint/Request#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fingerprintData" location="114,157" id="org.company.fingerprint/FingerprintData@fingerprintData+org.company.fingerprint/Request@|org.company.fingerprint/FingerprintData#fingerprintData" multiplicityLabel="//@children.5/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.2/@children.0" navigable="true" changeability="2">
+        <children xsi:type="editmodel:LabelEditModel" name=" + fingerprintData" location="171,662" size="71,10" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="141,662" size="16,10" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/Request-Soyatec::Import->org.company.fingerprint/FingerprintData" source="//@children.5" target="//@children.0" targetEnd="//@children.5/@sourceConnections.1/@children.2" label="//@children.5/@sourceConnections.1/@children.0" sourceEnd="//@children.5/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,17" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,157"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="FingerprintManager" location="524,625" size="206,175" id="org.company.fingerprint/FingerprintManager" runTimeClassModel="LoadFingerprints(),FingerprintManager(Lorg.company.fingerprint.FingerprintProvider;),MatchMinutia(Lsourceafis.simple.Fingerprint;Lsourceafis.simple.Fingerprint;),storedFingerprints,fingerprintsLoaded,ProcessRequest(Lorg.company.fingerprint.Request;),FindMatches(Lorg.company.fingerprint.FingerprintData;Ljava.lang.Boolean;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="183,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="fingerprintsLoaded" id="org.company.fingerprint/FingerprintManager#fingerprintsLoaded"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="storedFingerprints" id="org.company.fingerprint/FingerprintManager#storedFingerprints"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,90">
+      <children xsi:type="editmodel:MethodEditModel" name="FindMatches" id="org.company.fingerprint/FingerprintManager#FindMatches(Lorg.company.fingerprint.FingerprintData;Ljava.lang.Boolean;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="FingerprintManager" id="org.company.fingerprint/FingerprintManager#FingerprintManager(Lorg.company.fingerprint.FingerprintProvider;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="LoadFingerprints" id="org.company.fingerprint/FingerprintManager#LoadFingerprints()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="MatchMinutia" id="org.company.fingerprint/FingerprintManager#MatchMinutia(Lsourceafis.simple.Fingerprint;Lsourceafis.simple.Fingerprint;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ProcessRequest" id="org.company.fingerprint/FingerprintManager#ProcessRequest(Lorg.company.fingerprint.Request;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintProvider@fingerprintProvider+org.company.fingerprint/FingerprintManager@" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.0/@children.2" label="//@children.6/@sourceConnections.0/@children.0" sourceEnd="//@children.6/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="10,0" id="org.company.fingerprint/FingerprintProvider@fingerprintProvider+org.company.fingerprint/FingerprintManager@|org.company.fingerprint/FingerprintManager#" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fingerprintProvider" location="171,165" id="org.company.fingerprint/FingerprintProvider@fingerprintProvider+org.company.fingerprint/FingerprintManager@|org.company.fingerprint/FingerprintProvider#fingerprintProvider" multiplicityLabel="//@children.6/@sourceConnections.0/@children.2/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.2/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ fingerprintProvider" location="393,198" size="84,10" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="393,222" size="6,10" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Soyatec::Import->org.company.fingerprint/FingerprintData" source="//@children.6" target="//@children.0" targetEnd="//@children.6/@sourceConnections.1/@children.2" label="//@children.6/@sourceConnections.1/@children.0" sourceEnd="//@children.6/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,15" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="124,142"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Soyatec::Implement->org.company.fingerprint/IRequestProcessor" source="//@children.6" target="//@children.7" targetEnd="//@children.6/@sourceConnections.2/@children.2" label="//@children.6/@sourceConnections.2/@children.0" sourceEnd="//@children.6/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="50,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="103,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="69,77"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Standard::Call->org.company.fingerprint/ClientsHandlerFactory" source="//@children.6" target="//@children.4" targetEnd="//@children.6/@sourceConnections.3/@children.2" label="//@children.6/@sourceConnections.3/@children.0" sourceEnd="//@children.6/@sourceConnections.3/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call»" size="23,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,64" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,50"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Soyatec::Import->org.company.fingerprint/IClientsHandler" source="//@children.6" target="//@children.8" targetEnd="//@children.6/@sourceConnections.4/@children.2" label="//@children.6/@sourceConnections.4/@children.0" sourceEnd="//@children.6/@sourceConnections.4/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="184,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,62"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Standard::Call->org.company.fingerprint/FingerprintProvider*org.company.fingerprint/FingerprintManager-Soyatec::Import->org.company.fingerprint/FingerprintProvider" source="//@children.6" target="//@children.3" targetEnd="//@children.6/@sourceConnections.5/@children.2" label="//@children.6/@sourceConnections.5/@children.0" sourceEnd="//@children.6/@sourceConnections.5/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Call, Import»" size="55,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,12" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="156,175"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Soyatec::Access->org.company.fingerprint/Reply*org.company.fingerprint/FingerprintManager-Standard::Instantiate->org.company.fingerprint/Reply*org.company.fingerprint/FingerprintManager-Soyatec::Import->org.company.fingerprint/Reply" source="//@children.6" target="//@children.1" targetEnd="//@children.6/@sourceConnections.6/@children.2" label="//@children.6/@sourceConnections.6/@children.0" sourceEnd="//@children.6/@sourceConnections.6/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access, Instantiate»" size="112,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="19,175" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="160,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/FingerprintManager-Soyatec::Access->org.company.fingerprint/Request*org.company.fingerprint/FingerprintManager-Soyatec::Import->org.company.fingerprint/Request" source="//@children.6" target="//@children.5" targetEnd="//@children.6/@sourceConnections.7/@children.2" label="//@children.6/@sourceConnections.7/@children.0" sourceEnd="//@children.6/@sourceConnections.7/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Access»" size="66,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,133" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="101,19"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.company.fingerprint/IRequestProcessor&lt;-org.company.fingerprint/FingerprintManager" source="//@children.6" target="//@children.7" targetEnd="//@children.6/@sourceConnections.8/@children.1" sourceEnd="//@children.6/@sourceConnections.8/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="83,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="49,77"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.2/@sourceConnections.1 //@children.2/@sourceConnections.2 //@children.8/@sourceConnections.1 //@children.6/@sourceConnections.2 //@children.6/@sourceConnections.8 //@children.9/@sourceConnections.1" name="IRequestProcessor" location="558,498" size="138,77" id="org.company.fingerprint/IRequestProcessor" runTimeClassModel="ProcessRequest(Lorg.company.fingerprint.Request;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="88,18">
+      <children xsi:type="editmodel:MethodEditModel" name="ProcessRequest" id="org.company.fingerprint/IRequestProcessor#ProcessRequest(Lorg.company.fingerprint.Request;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/IRequestProcessor-Soyatec::Import->org.company.fingerprint/Request" source="//@children.7" target="//@children.5" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="24,77" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="99,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/IRequestProcessor-Soyatec::Import->org.company.fingerprint/Reply" source="//@children.7" target="//@children.1" targetEnd="//@children.7/@sourceConnections.1/@children.2" label="//@children.7/@sourceConnections.1/@children.0" sourceEnd="//@children.7/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="2,77" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="177,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.6/@sourceConnections.4 //@children.9/@sourceConnections.0 //@children.9/@sourceConnections.3" name="IClientsHandler" location="938,273" size="122,77" id="org.company.fingerprint/IClientsHandler" runTimeClassModel="Open(Lorg.company.fingerprint.IRequestProcessor;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="48,18">
+      <children xsi:type="editmodel:MethodEditModel" name="Open" id="org.company.fingerprint/IClientsHandler#Open(Lorg.company.fingerprint.IRequestProcessor;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="org.company.fingerprint/IClientsHandler@clientsHandler+org.company.fingerprint/FingerprintManager@" source="//@children.8" target="//@children.6" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="clientsHandler" location="10,77" id="org.company.fingerprint/IClientsHandler@clientsHandler+org.company.fingerprint/FingerprintManager@|org.company.fingerprint/IClientsHandler#clientsHandler" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" ~ clientsHandler" location="955,357" size="66,10" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="935,357" size="6,10" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="206,10" id="org.company.fingerprint/IClientsHandler@clientsHandler+org.company.fingerprint/FingerprintManager@|org.company.fingerprint/FingerprintManager#"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/IClientsHandler-Soyatec::Import->org.company.fingerprint/IRequestProcessor" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,75" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="132,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="RedisBasedClientsHandler" location="911,400" size="177,139" id="org.company.fingerprint/RedisBasedClientsHandler" runTimeClassModel="Open(Lorg.company.fingerprint.IRequestProcessor;),Subscribe([BLorg.company.fingerprint.IRequestProcessor;),RedisBasedClientsHandler(),Publish([B[B),Initialize()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="128,90">
+      <children xsi:type="editmodel:MethodEditModel" name="Initialize" id="org.company.fingerprint/RedisBasedClientsHandler#Initialize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Open" id="org.company.fingerprint/RedisBasedClientsHandler#Open(Lorg.company.fingerprint.IRequestProcessor;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Publish" id="org.company.fingerprint/RedisBasedClientsHandler#Publish([B[B)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="RedisBasedClientsHandler" id="org.company.fingerprint/RedisBasedClientsHandler#RedisBasedClientsHandler()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Subscribe" id="org.company.fingerprint/RedisBasedClientsHandler#Subscribe([BLorg.company.fingerprint.IRequestProcessor;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/RedisBasedClientsHandler-Soyatec::Implement->org.company.fingerprint/IClientsHandler" source="//@children.9" target="//@children.8" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Implement»" size="50,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="88,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,77"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/RedisBasedClientsHandler-Soyatec::Import->org.company.fingerprint/IRequestProcessor" source="//@children.9" target="//@children.7" targetEnd="//@children.9/@sourceConnections.1/@children.2" label="//@children.9/@sourceConnections.1/@children.0" sourceEnd="//@children.9/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import»" size="35,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,118" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="138,20"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="org.company.fingerprint/RedisBasedClientsHandler-Standard::Instantiate->org.company.fingerprint/RedisPubSubHandler*org.company.fingerprint/RedisBasedClientsHandler-Soyatec::Import->org.company.fingerprint/RedisPubSubHandler" source="//@children.9" target="//@children.2" targetEnd="//@children.9/@sourceConnections.2/@children.2" label="//@children.9/@sourceConnections.2/@children.0" sourceEnd="//@children.9/@sourceConnections.2/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" name="«Import, Instantiate»" size="81,10" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="61,139" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="115,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="org.company.fingerprint/IClientsHandler&lt;-org.company.fingerprint/RedisBasedClientsHandler" source="//@children.9" target="//@children.8" targetEnd="//@children.9/@sourceConnections.3/@children.1" sourceEnd="//@children.9/@sourceConnections.3/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="68,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="41,77"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=7;Product=eUML2"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
