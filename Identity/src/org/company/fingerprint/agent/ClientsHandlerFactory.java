@@ -1,4 +1,4 @@
-package org.company.fingerprint;
+package org.company.fingerprint.agent;
 
 public class ClientsHandlerFactory {
 	public static IClientsHandler GetClientsHandler(String name) throws Exception

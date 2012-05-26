@@ -1,4 +1,4 @@
-package org.company.fingerprint;
+package org.company.fingerprint.agent;
 
 public interface IRequestProcessor {
 	public Reply ProcessRequest(Request request);

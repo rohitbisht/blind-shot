@@ -1,4 +1,4 @@
-package org.company.fingerprint;
+package org.company.fingerprint.agent;
 
 import org.apache.hadoop.hbase.util.Bytes;
 import sourceafis.simple.*;

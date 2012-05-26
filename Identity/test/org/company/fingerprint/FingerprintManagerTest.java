@@ -6,6 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.company.fingerprint.agent.FingerprintData;
+import org.company.fingerprint.agent.FingerprintManager;
+import org.company.fingerprint.agent.FingerprintProvider;
 import org.junit.Test;
 
 import sourceafis.simple.Fingerprint;

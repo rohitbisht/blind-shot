@@ -1,4 +1,4 @@
-package org.company.fingerprint;
+package org.company.fingerprint.agent;
 
 import java.io.Serializable;
 import java.util.ArrayList;
