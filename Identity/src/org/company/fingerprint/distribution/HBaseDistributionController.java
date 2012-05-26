@@ -16,8 +16,6 @@ import org.apache.hadoop.hbase.HRegionInfo;
 import org.apache.hadoop.hbase.ServerName;
 import org.apache.hadoop.hbase.client.HTable;
 import org.company.fingerprint.transport.IDuplexDistributionChannel;
-import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * @author rohit
@@ -29,6 +27,12 @@ public class HBaseDistributionController implements IDistributionController
     String dataTableName;
     ArrayList<ServerName> regionServers;
     IDuplexDistributionChannel channel;
+    
+    /**
+     * @uml.property  name="synchnronizerBlocks"
+     * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="hBaseDistributionController:org.company.fingerprint.distribution.SynchnronizerBlock"
+     */
+    private ArrayList<SynchnronizerBlock> synchnronizerBlocks;
     
     public HBaseDistributionController(String dataTableName) throws IOException
     {
@@ -57,7 +61,7 @@ public class HBaseDistributionController implements IDistributionController
         HTable table = new HTable(this.dataTableName) ;
         NavigableMap<HRegionInfo, ServerName> map = table.getRegionLocations();
         
-        HashMap hashMap = new HashMap<ServerName, String>();
+        HashMap<ServerName, String> hashMap = new HashMap<ServerName, String>();
         
         for(Entry<HRegionInfo, ServerName> pair : map.entrySet() )
         {
@@ -73,7 +77,7 @@ public class HBaseDistributionController implements IDistributionController
      * @see org.company.fingerprint.distribution.IDistributionController#Execute(java.lang.Object)
      */
     @Override
-    public Object Execute(Object args)
+    public Object Execute(Object args) throws InterruptedException
     {        
         ArrayList<String> servers = new ArrayList<String>();
         for(ServerName s : regionServers)
@@ -81,13 +85,18 @@ public class HBaseDistributionController implements IDistributionController
             servers.add(s.getHostname());
         }
         
+        //FIXME : set the correct operation id
+        SynchnronizerBlock sblock = new SynchnronizerBlock(1, servers);
+        
+        //FIXME : threadsafe
+        synchnronizerBlocks.add(sblock);
         channel.SendToMultipleServers(servers, args);
-        return null;
+        sblock.wait();
+        
+        //FIXME : Threadsafe
+        synchnronizerBlocks.remove(sblock);
+        return sblock.GetResults();
     }
 
-	/**
-	 * @uml.property  name="synchnronizerBlocks"
-	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="hBaseDistributionController:org.company.fingerprint.distribution.SynchnronizerBlock"
-	 */
-	private ArrayList<SynchnronizerBlock> synchnronizerBlocks;
+	
 }

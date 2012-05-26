@@ -10,20 +10,21 @@ import org.apache.commons.lang.NullArgumentException;
 /**
  * @author rohit
  *SynchronizerBlock is used to synchronize between the inbound operation and the result from the distributed operation execution.
+ *Raises notifyall event on itself once all the results are received.
  *TODO: Make thread safe.
  */
 public class SynchnronizerBlock
 {
     private HashMap<String, Object> completedMap;
     public long OperationId;
-    public ISynchronizedOperationCompletionCallback Callback;
+    
     public List<String> ServerList;
     
-    public SynchnronizerBlock(long operationId, ISynchronizedOperationCompletionCallback callback)
+    public SynchnronizerBlock(long operationId, List<String> servers)
     {
         //TODO null checks
         this.OperationId = operationId;
-        this.Callback = callback;
+        this.ServerList = servers;
         completedMap = new HashMap<String, Object>();
     }
     
@@ -43,11 +44,11 @@ public class SynchnronizerBlock
          
          completedMap.put(reply.Server, reply.Result );
          
-         CallbackIfAllRepliesReceived();
+         NotifyIfAllRepliesReceived();
          
     }
     
-    void CallbackIfAllRepliesReceived()
+    void NotifyIfAllRepliesReceived()
     {
         for(String server : this.ServerList)
         {
@@ -57,6 +58,11 @@ public class SynchnronizerBlock
             }
         }
         
-        this.Callback.Invoke(completedMap);
+        this.notifyAll();
+    }
+    
+    public Object GetResults()
+    {
+        return completedMap;
     }
 }
