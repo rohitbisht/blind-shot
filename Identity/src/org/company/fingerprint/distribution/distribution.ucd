@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="distribution" size="1013,408" id="org.company.fingerprint.distribution" metadata="uml2-1.0" initialized="true" scrolledY="49" tag="10" key="32303037303533312D3130204964656E74697479">
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="distribution" size="1013,408" id="org.company.fingerprint.distribution" metadata="uml2-1.0" initialized="true" tag="10" key="32303037303533312D3130204964656E74697479">
   <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.1/@sourceConnections.1" name="IDistributionController" location="67,50" size="160,77" id="org.company.fingerprint.distribution/IDistributionController" runTimeClassModel="Execute(Ljava.lang.Object;)">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="57,18">

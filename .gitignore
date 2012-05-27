@@ -10,3 +10,4 @@
 .metadata/.mylyn/backup/*
 Identity/.settings/org.eclipse.jdt.ui.prefs
 Identity/.settings/org.eclipse.mylyn.tasks.ui.prefs
+.metadata/.mylyn/contexts

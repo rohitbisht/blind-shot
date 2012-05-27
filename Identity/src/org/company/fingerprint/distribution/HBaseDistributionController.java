@@ -15,6 +15,7 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HRegionInfo;
 import org.apache.hadoop.hbase.ServerName;
 import org.apache.hadoop.hbase.client.HTable;
+import org.company.fingerprint.transport.IDistributionChannelReceiveCallback;
 import org.company.fingerprint.transport.IDuplexDistributionChannel;
 
 /**
@@ -42,8 +43,6 @@ public class HBaseDistributionController implements IDistributionController
         Initialize();
     }
     
-    
-    
     void Initialize() throws IOException
     {
         RefrestServersList();
@@ -53,6 +52,34 @@ public class HBaseDistributionController implements IDistributionController
     void InitializeDistributedChannel()
     {
         throw new NotImplementedException();
+    }
+    
+    void RegisterReceiver()
+    {
+        channel.RegisterReceive(new IDistributionChannelReceiveCallback() {
+            
+            @Override
+            public void Callback(String remoteServer, Object message) 
+            {
+                try
+                {
+                    if(message instanceof DistributionMessageReply)
+                    {
+                        DistributionMessageReply replyMessage = (DistributionMessageReply) message;
+                        OnReceive(remoteServer, replyMessage);
+                    }
+                    else
+                    {
+                        throw new Exception("Invalid message");
+                    }
+                    
+                }
+                catch(Exception e)
+                {
+                    System.out.printf("Distributed receive: exception occurred : %s", e.getMessage());
+                }                
+            }
+        });
     }
     
     
@@ -77,7 +104,7 @@ public class HBaseDistributionController implements IDistributionController
      * @see org.company.fingerprint.distribution.IDistributionController#Execute(java.lang.Object)
      */
     @Override
-    public Object Execute(Object args) throws InterruptedException
+    public Object Execute(Object args) throws Exception
     {        
         ArrayList<String> servers = new ArrayList<String>();
         for(ServerName s : regionServers)
@@ -96,6 +123,28 @@ public class HBaseDistributionController implements IDistributionController
         //FIXME : Threadsafe
         synchnronizerBlocks.remove(sblock);
         return sblock.GetResults();
+    }
+    
+    public void OnReceive(String Server, DistributionMessageReply message) throws Exception
+    {
+        SynchnronizerBlock syncBlock = FindSyncBlock(message.OperationId);
+        if(null == syncBlock)
+        {
+            System.out.print("Invalid (out of band, or late) incoming reply");
+            return;
+        }
+        syncBlock.AddResult(message);
+    }
+    
+    public SynchnronizerBlock FindSyncBlock(long operationId)
+    {
+        for(SynchnronizerBlock sb : synchnronizerBlocks)
+        {
+            if(sb.OperationId == operationId)
+                return sb;
+        }
+        
+        return null;
     }
 
 	
