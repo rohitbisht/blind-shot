@@ -1,19 +1,19 @@
-package org.company.fingerprint.transport;
+package org.company.fingerprint;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.company.fingerprint.transport.RedisBasedDistributionChannel;
 import org.junit.Test;
 
-public class RedisBasedDistributionChannelTest extends
-        RedisBasedDistributionChannel
+public class RedisBasedDistributionChannelTest 
 {
 
     @Test
     public void testSendToMultipleServers() throws Exception
     {
-        RedisBasedDistributionChannel c = new RedisBasedDistributionChannel();
+        RedisBasedDistributionChannel c = new RedisBasedDistributionChannel(RedisBasedDistributionChannel.RequestChannel, RedisBasedDistributionChannel.ReplyChannel);
         byte[] b = new byte[10];
         for(int i=0; i<b.length; i++)
         {

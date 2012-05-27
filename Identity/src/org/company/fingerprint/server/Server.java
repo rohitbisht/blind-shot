@@ -14,7 +14,7 @@ public class Server {
     
 	public void Start() throws Exception
 	{
-	    IDuplexDistributionChannel channel = new RedisBasedDistributionChannel();
+	    IDuplexDistributionChannel channel = new RedisBasedDistributionChannel(RedisBasedDistributionChannel.RequestChannel, RedisBasedDistributionChannel.ReplyChannel);
 		distributionController = new HBaseDistributionController("Users", channel);
 		distributionController.Start();		
 	}

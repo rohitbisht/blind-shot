@@ -22,8 +22,9 @@ import redis.clients.jedis.JedisPoolConfig;
 public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements IDuplexDistributionChannel
 {
     
-    static byte[] replyChannel = Bytes.toBytes("identity.fingerprint.reply");
-    static byte[] requestChannel = Bytes.toBytes("identity.fingerprint.request");
+    public static final String ReplyChannel = "identity.fingerprint.reply";
+    public static final String RequestChannel = "identity.fingerprint.request";
+    public static final String selfServerName = "192.168.2.130";
     
     Thread subscriptionThread;
     Jedis subscriptionJedisClient;
@@ -41,17 +42,20 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
      */
     JedisPool pool;
     
+    byte[] sendChannel;
+    byte[] receiveChannel;
     
     
-    public RedisBasedDistributionChannel()
+    public RedisBasedDistributionChannel(String sendChannel, String receiveChannel)
     {
-        
+        this.sendChannel = Bytes.toBytes(sendChannel);
+        this.receiveChannel = Bytes.toBytes(receiveChannel);
     }
     
     public void Open()
     {
         pool = new JedisPool(new JedisPoolConfig(), "localhost");
-        Subscribe(RedisBasedDistributionChannel.replyChannel);
+        Subscribe(receiveChannel);
     }
     
     public void Close()
@@ -86,9 +90,9 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
         //TODO: Implement ACK mechanism
         Message wireMessage = new Message();
         wireMessage.Data = message;
-        wireMessage.Sender = "server";
+        wireMessage.Sender = selfServerName;
                 
-        pool.getResource().publish(requestChannel, Serialize(message));
+        pool.getResource().publish(sendChannel, Serialize(wireMessage));
         
     }
     
@@ -112,8 +116,6 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
     
     Object DeSerialize(byte[] data) throws Exception
     {
-        
-    
         ByteArrayInputStream inStream = new ByteArrayInputStream(data);
 
         ObjectInputStream inputStream;
