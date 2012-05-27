@@ -57,8 +57,10 @@ public class SynchnronizerBlock
                 return;
             }
         }
-        
-        this.notifyAll();
+        synchronized(this)
+        {
+            this.notifyAll();
+        }
     }
     
     public Object GetResults()

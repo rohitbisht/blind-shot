@@ -45,13 +45,22 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
     
     public RedisBasedDistributionChannel()
     {
-        Initialize();
+        
     }
-
-    void Initialize()
+    
+    public void Open()
     {
         pool = new JedisPool(new JedisPoolConfig(), "localhost");
         Subscribe(RedisBasedDistributionChannel.replyChannel);
+    }
+    
+    public void Close()
+    {
+        if(null!=subscriptionJedisClient)
+        {
+            subscriptionJedisClient.disconnect();
+            
+        }
     }
     
     void Subscribe(final byte[] channel)
@@ -146,7 +155,7 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
             }
             else
             {
-                System.out.println("RedisBasedDistribution: Unknown message received");
+                System.out.println("\nRedisBasedDistribution: Unknown message received");
             }
         } catch (Exception e)
         {

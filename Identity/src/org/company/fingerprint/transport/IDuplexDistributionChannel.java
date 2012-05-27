@@ -11,6 +11,8 @@ import java.util.List;
 */
 public interface IDuplexDistributionChannel
 {
+    void Open();
+    void Close();
     void SendToMultipleServers(List<String> serverList, Object message) throws Exception;
     void RegisterReceive(IDistributionChannelReceiveCallback callback);
 }

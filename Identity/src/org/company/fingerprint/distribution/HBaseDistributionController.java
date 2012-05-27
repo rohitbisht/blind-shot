@@ -20,7 +20,7 @@ import org.company.fingerprint.transport.IDuplexDistributionChannel;
 
 /**
  * @author rohit
- *
+ * 
  */
 public class HBaseDistributionController implements IDistributionController
 {
@@ -28,124 +28,160 @@ public class HBaseDistributionController implements IDistributionController
     String dataTableName;
     ArrayList<ServerName> regionServers;
     IDuplexDistributionChannel channel;
-    
+
     /**
-     * @uml.property  name="synchnronizerBlocks"
-     * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" aggregation="shared" inverse="hBaseDistributionController:org.company.fingerprint.distribution.SynchnronizerBlock"
+     * @uml.property name="synchnronizerBlocks"
+     * @uml.associationEnd multiplicity="(0 -1)" ordering="true"
+     *                     aggregation="shared" inverse=
+     *                     "hBaseDistributionController:org.company.fingerprint.distribution.SynchnronizerBlock"
      */
     private ArrayList<SynchnronizerBlock> synchnronizerBlocks;
-    
-    public HBaseDistributionController(String dataTableName) throws IOException
+
+    public HBaseDistributionController(String dataTableName,
+            IDuplexDistributionChannel channel) throws IOException
     {
         configuration = HBaseConfiguration.create();
         this.dataTableName = dataTableName;
-        
-        Initialize();
+        this.channel = channel;
+
     }
-    
-    void Initialize() throws IOException
+
+    public void Start() throws Exception
     {
         RefrestServersList();
         InitializeDistributedChannel();
+        synchnronizerBlocks = new ArrayList<SynchnronizerBlock>();
     }
-    
+
+    public void Stop()
+    {
+        channel.Close();
+    }
+
     void InitializeDistributedChannel()
     {
-        throw new NotImplementedException();
+        channel.Open();
+        RegisterReceiver();
     }
-    
+
     void RegisterReceiver()
     {
         channel.RegisterReceive(new IDistributionChannelReceiveCallback() {
-            
+
             @Override
-            public void Callback(String remoteServer, Object message) 
+            public void Callback(String remoteServer, Object message)
             {
                 try
                 {
-                    if(message instanceof DistributionMessageReply)
+                    if (message instanceof DistributionMessageReply)
                     {
                         DistributionMessageReply replyMessage = (DistributionMessageReply) message;
                         OnReceive(remoteServer, replyMessage);
-                    }
-                    else
+                    } else
                     {
                         throw new Exception("Invalid message");
                     }
-                    
-                }
-                catch(Exception e)
+
+                } catch (Exception e)
                 {
-                    System.out.printf("Distributed receive: exception occurred : %s", e.getMessage());
-                }                
+                    System.out.printf(
+                            "Distributed receive: exception occurred : %s",
+                            e.getMessage());
+                }
             }
         });
     }
-    
-    
+
     public void RefrestServersList() throws IOException
-    {        
-        HTable table = new HTable(this.dataTableName) ;
+    {
+        HTable table = new HTable(this.dataTableName);
         NavigableMap<HRegionInfo, ServerName> map = table.getRegionLocations();
-        
+
         HashMap<ServerName, String> hashMap = new HashMap<ServerName, String>();
-        
-        for(Entry<HRegionInfo, ServerName> pair : map.entrySet() )
+
+        for (Entry<HRegionInfo, ServerName> pair : map.entrySet())
         {
-            System.out.printf("%s : %s \n", pair.getKey().getRegionNameAsString(), pair.getValue().getServerName());
-            hashMap.put(pair.getValue(),"x");
+            System.out.printf("%s : %s \n", pair.getKey()
+                    .getRegionNameAsString(), pair.getValue().getServerName());
+            hashMap.put(pair.getValue(), "x");
         }
-        
-        this.regionServers = new ArrayList<ServerName> (hashMap.keySet());
-        
+
+        this.regionServers = new ArrayList<ServerName>(hashMap.keySet());
+
     }
-    
-    /* (non-Javadoc)
-     * @see org.company.fingerprint.distribution.IDistributionController#Execute(java.lang.Object)
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.company.fingerprint.distribution.IDistributionController#Execute(
+     * java.lang.Object)
      */
     @Override
     public Object Execute(Object args) throws Exception
-    {        
+    {
         ArrayList<String> servers = new ArrayList<String>();
-        for(ServerName s : regionServers)
+        for (ServerName s : regionServers)
         {
             servers.add(s.getHostname());
         }
-        
-        //FIXME : set the correct operation id
+
+        return Send(args, servers);
+    }
+
+    private Object Send(Object args, ArrayList<String> servers)
+            throws Exception, InterruptedException
+    {
+        // FIXME : set the correct operation id
         SynchnronizerBlock sblock = new SynchnronizerBlock(1, servers);
-        
-        //FIXME : threadsafe
-        synchnronizerBlocks.add(sblock);
+
+        synchronized (synchnronizerBlocks)
+        {
+            // FIXME : threadsafe
+            synchnronizerBlocks.add(sblock);
+        }
+
+        System.out.printf("\nSending %d", sblock.OperationId);
         channel.SendToMultipleServers(servers, args);
-        sblock.wait();
+
+        System.out.printf("\nEntering wait for %d", sblock.OperationId);
+        synchronized (sblock)
+        {
+            sblock.wait();
+        }
+
+        System.out.printf("\nExit from wait for %d", sblock.OperationId);
         
-        //FIXME : Threadsafe
-        synchnronizerBlocks.remove(sblock);
+        // FIXME : Threadsafe
+        synchronized (synchnronizerBlocks)
+        {
+            synchnronizerBlocks.remove(sblock);
+        }
+
         return sblock.GetResults();
     }
-    
-    public void OnReceive(String Server, DistributionMessageReply message) throws Exception
+
+    public void OnReceive(String Server, DistributionMessageReply message)
+            throws Exception
     {
         SynchnronizerBlock syncBlock = FindSyncBlock(message.OperationId);
-        if(null == syncBlock)
+        if (null == syncBlock)
         {
             System.out.print("Invalid (out of band, or late) incoming reply");
             return;
         }
         syncBlock.AddResult(message);
     }
-    
+
     public SynchnronizerBlock FindSyncBlock(long operationId)
     {
-        for(SynchnronizerBlock sb : synchnronizerBlocks)
+        for (SynchnronizerBlock sb : synchnronizerBlocks)
         {
-            if(sb.OperationId == operationId)
+            if (sb.OperationId == operationId)
                 return sb;
         }
-        
+
         return null;
     }
 
-	
 }
