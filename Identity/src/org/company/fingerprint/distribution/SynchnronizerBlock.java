@@ -16,23 +16,23 @@ import org.apache.commons.lang.NullArgumentException;
 public class SynchnronizerBlock
 {
     private HashMap<String, Object> completedMap;
-    public long OperationId;
+    public long requestId;
     
     public List<String> ServerList;
     
-    public SynchnronizerBlock(long operationId, List<String> servers)
+    public SynchnronizerBlock(long requestId, List<String> servers)
     {
         //TODO null checks
-        this.OperationId = operationId;
+        this.requestId = requestId;
         this.ServerList = servers;
         completedMap = new HashMap<String, Object>();
     }
     
-    public void AddResult(DistributionMessageReply reply) throws Exception
+    public void AddResult(Reply reply) throws Exception
     {
          if(null == reply)
              throw new NullArgumentException("reply");
-         if(reply.GetOperationId() != this.OperationId)
+         if(reply.RequestId != this.requestId)
          {
              throw new Exception("SyncBlock:Invalid operation id sent.");
          }
@@ -42,7 +42,7 @@ public class SynchnronizerBlock
              throw new Exception("Duplicate message, the message from server is already received");             
          }
          
-         completedMap.put(reply.Server, reply.Result );
+         completedMap.put(reply.Server, reply.Data );
          
          NotifyIfAllRepliesReceived();
          

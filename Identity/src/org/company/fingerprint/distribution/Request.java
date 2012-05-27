@@ -1,6 +1,8 @@
-package org.company.fingerprint.agent;
+package org.company.fingerprint.distribution;
 
 import java.io.Serializable;
+
+import org.company.fingerprint.agent.FingerprintData;
 
 public class Request implements Serializable {
 
@@ -12,18 +14,18 @@ public class Request implements Serializable {
     
     public Request(){
     	nextId++;
-    	requestId = nextId;
+    	Id = nextId;
     }
     
 	/**
 	 * @uml.property  name="requestId"
 	 */
-	public long requestId;
+	public long Id;
 	/**
 	 * @uml.property  name="fingerprintData"
 	 * @uml.associationEnd  readOnly="true"
 	 */
-	public FingerprintData fingerprintData;
+	public Object Data;
 	
 }
 

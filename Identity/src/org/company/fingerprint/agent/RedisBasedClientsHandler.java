@@ -8,6 +8,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import org.apache.hadoop.hbase.util.Bytes;
+import org.company.fingerprint.distribution.Reply;
+import org.company.fingerprint.distribution.Request;
 import org.company.fingerprint.transport.IDistributionChannelReceiveCallback;
 import org.company.fingerprint.transport.IDuplexDistributionChannel;
 import org.company.fingerprint.transport.RedisBasedDistributionChannel;
@@ -80,6 +82,7 @@ public class RedisBasedClientsHandler implements IClientsHandler, IDistributionC
         
         Request request = (Request) message;
         Reply reply = requestProcessor.ProcessRequest(request);
+       
         try
         {
             SendReply(remoteServer, reply);

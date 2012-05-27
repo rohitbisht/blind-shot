@@ -2,9 +2,9 @@ package org.company.fingerprint.server;
 
 import java.io.IOException;
 
-import org.company.fingerprint.agent.Request;
 import org.company.fingerprint.distribution.HBaseDistributionController;
 import org.company.fingerprint.distribution.IDistributionController;
+import org.company.fingerprint.distribution.Request;
 import org.company.fingerprint.transport.IDuplexDistributionChannel;
 import org.company.fingerprint.transport.RedisBasedDistributionChannel;
 
@@ -24,9 +24,9 @@ public class Server {
 		distributionController.Stop();
 	}
 	
-	public void Send(Request request) throws Exception
+	public Object Send(Request request) throws Exception
 	{
-	    distributionController.Execute(request);
+	    return distributionController.Execute(request);
 	}
 	
 }

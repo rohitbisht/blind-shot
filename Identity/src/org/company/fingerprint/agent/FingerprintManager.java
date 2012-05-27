@@ -3,6 +3,10 @@ package org.company.fingerprint.agent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.company.fingerprint.distribution.Reply;
+import org.company.fingerprint.distribution.Request;
+
 import sourceafis.simple.*;
 
 public class FingerprintManager implements IRequestProcessor
@@ -70,8 +74,10 @@ public class FingerprintManager implements IRequestProcessor
 	@Override
 	public Reply ProcessRequest(Request request) {
 		// TODO Auto-generated method stub
-		Reply reply = new Reply(request);		
-		reply.fingerprints.add(request.fingerprintData);
+		Reply reply = new Reply(request);	
+		ArrayList<FingerprintData> fps = new ArrayList<FingerprintData>();
+		
+		reply.Data = request.Data;
 		return reply;
 	}
 

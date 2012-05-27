@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import org.apache.hadoop.hbase.util.Bytes;
+import org.company.fingerprint.distribution.Request;
 
 
 public class Main {
@@ -36,7 +37,7 @@ public class Main {
 		
 		
 		Request req = new Request();
-		req.fingerprintData = new FingerprintData("testone", temp);
+		req.Data = new FingerprintData("testone", temp);
 		
 		ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 		ObjectOutputStream objectOutStream = new ObjectOutputStream(outStream);

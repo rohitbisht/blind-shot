@@ -1,7 +1,8 @@
 package org.company.fingerprint.server;
 
+import org.apache.hadoop.hbase.util.Bytes;
 import org.company.fingerprint.agent.FingerprintData;
-import org.company.fingerprint.agent.Request;
+import org.company.fingerprint.distribution.Request;
 
 public class Main
 {
@@ -12,9 +13,10 @@ public class Main
         server.Start();
         //System.out.print("\nServer Started. Press any key to stop");
         Request req = new Request();
-        req.fingerprintData = new FingerprintData("10");
+        req.Data = new FingerprintData("10");
         
-        server.Send(req);
+        Object o = server.Send(req);
+        System.out.printf("\n Done : %d", Bytes.toStringBinary((byte[]) o));
         
     }
 }

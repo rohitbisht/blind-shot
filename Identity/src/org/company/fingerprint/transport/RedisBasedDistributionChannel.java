@@ -10,9 +10,9 @@ import java.util.List;
 
 import org.apache.hadoop.hbase.util.Bytes;
 import org.company.fingerprint.agent.IRequestProcessor;
-import org.company.fingerprint.agent.Reply;
-import org.company.fingerprint.agent.Request;
 import org.company.fingerprint.distribution.DistributionMessageReply;
+import org.company.fingerprint.distribution.Reply;
+import org.company.fingerprint.distribution.Request;
 
 import redis.clients.jedis.BinaryJedisPubSub;
 import redis.clients.jedis.Jedis;
@@ -25,6 +25,11 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
     public static final String ReplyChannel = "identity.fingerprint.reply";
     public static final String RequestChannel = "identity.fingerprint.request";
     public static final String selfServerName = "192.168.2.130";
+    
+    public static String GetServer()
+    {
+        return selfServerName;
+    }
     
     Thread subscriptionThread;
     Jedis subscriptionJedisClient;
@@ -67,22 +72,13 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
         }
     }
     
-    void Subscribe(final byte[] channel)
+    @Override
+    public void RegisterReceive(IDistributionChannelReceiveCallback callback)
     {   
-        final BinaryJedisPubSub pubSub = this;
-        subscriptionJedisClient = pool.getResource();
-        
-        subscriptionThread = new Thread( new Runnable(){
-            @Override
-            public void run() {             
-                subscriptionJedisClient.subscribe(pubSub, channel);
-            }
-            
-        });
-        
-        subscriptionThread.start();     
+        receiverCallback = callback;
     }
     
+       
     @Override
     public void SendToMultipleServers(List<String> serverList, Object message) throws Exception
     {
@@ -129,20 +125,20 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
             
     }
     
-
-    @Override
-    public void RegisterReceive(IDistributionChannelReceiveCallback callback)
+    void Subscribe(final byte[] channel)
     {   
-        receiverCallback = callback;
-    }
-
-    
-    void OnReceiveMessage(Message message)
-    {       
-        if(null != receiverCallback)
-        {
-            receiverCallback.Callback(message.Sender, message.Data);
-        }
+        final BinaryJedisPubSub pubSub = this;
+        subscriptionJedisClient = pool.getResource();
+        
+        subscriptionThread = new Thread( new Runnable(){
+            @Override
+            public void run() {             
+                subscriptionJedisClient.subscribe(pubSub, channel);
+            }
+            
+        });
+        
+        subscriptionThread.start();     
     }
 
     @Override
@@ -163,6 +159,14 @@ public class RedisBasedDistributionChannel extends BinaryJedisPubSub implements 
         {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+    }
+    
+    void OnReceiveMessage(Message message)
+    {       
+        if(null != receiverCallback)
+        {
+            receiverCallback.Callback(message.Sender, message.Data);
         }
     }
 

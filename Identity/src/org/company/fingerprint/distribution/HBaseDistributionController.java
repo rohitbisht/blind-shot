@@ -73,9 +73,9 @@ public class HBaseDistributionController implements IDistributionController
             {
                 try
                 {
-                    if (message instanceof DistributionMessageReply)
+                    if (message instanceof Reply)
                     {
-                        DistributionMessageReply replyMessage = (DistributionMessageReply) message;
+                        Reply replyMessage = (Reply) message;
                         OnReceive(remoteServer, replyMessage);
                     } else
                     {
@@ -125,15 +125,22 @@ public class HBaseDistributionController implements IDistributionController
         {
             servers.add(s.getHostname());
         }
-
-        return Send(args, servers);
+        
+        return Send(CreateRequest(args), servers);
+    }
+    
+    private Request CreateRequest(Object data)
+    {
+        Request req =  new Request();
+        req.Data = data;
+        return req;
     }
 
-    private Object Send(Object args, ArrayList<String> servers)
+    private Object Send(Request request, ArrayList<String> servers)
             throws Exception, InterruptedException
     {
         // FIXME : set the correct operation id
-        SynchnronizerBlock sblock = new SynchnronizerBlock(1, servers);
+        SynchnronizerBlock sblock = new SynchnronizerBlock(request.Id, servers);
 
         synchronized (synchnronizerBlocks)
         {
@@ -141,16 +148,16 @@ public class HBaseDistributionController implements IDistributionController
             synchnronizerBlocks.add(sblock);
         }
 
-        System.out.printf("\nSending %d", sblock.OperationId);
-        channel.SendToMultipleServers(servers, args);
+        System.out.printf("\nSending %d", sblock.requestId);
+        channel.SendToMultipleServers(servers, request);
 
-        System.out.printf("\nEntering wait for %d", sblock.OperationId);
+        System.out.printf("\nEntering wait for %d", sblock.requestId);
         synchronized (sblock)
         {
             sblock.wait();
         }
 
-        System.out.printf("\nExit from wait for %d", sblock.OperationId);
+        System.out.printf("\nExit from wait for %d", sblock.requestId);
         
         // FIXME : Threadsafe
         synchronized (synchnronizerBlocks)
@@ -161,10 +168,10 @@ public class HBaseDistributionController implements IDistributionController
         return sblock.GetResults();
     }
 
-    public void OnReceive(String Server, DistributionMessageReply message)
+    public void OnReceive(String Server, Reply message)
             throws Exception
     {
-        SynchnronizerBlock syncBlock = FindSyncBlock(message.OperationId);
+        SynchnronizerBlock syncBlock = FindSyncBlock(message.RequestId);
         if (null == syncBlock)
         {
             System.out.print("Invalid (out of band, or late) incoming reply");
@@ -177,7 +184,7 @@ public class HBaseDistributionController implements IDistributionController
     {
         for (SynchnronizerBlock sb : synchnronizerBlocks)
         {
-            if (sb.OperationId == operationId)
+            if (sb.requestId == operationId)
                 return sb;
         }
 
